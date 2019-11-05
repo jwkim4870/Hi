@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Main Page</title>
+        <link type="text/css" rel="stylesheet" href="main.css">
+        <script>
+                function search() {
+                    var fn = document.search_engine.forcename.value;
+                    var fi = document.search_engine.forceid.value;
+                    var valid = false;
+                    var forcenameArray = ["Park", "Gong"];
+                    var forceidArray = ["park86", "gong86"];
+                    for(var i = 0; i < forcenameArray.length; i++){
+                        if((fn == forcenameArray[i]) && (fi == forceidArray[i])){
+                            valid = true;
+                            break;
+                        }
+                    }
+                    if(valid){
+                        alert("해당인원의 정보로 이동");
+                        window.location = "parkinfo.html"
+                        return false;
+                    } else { 
+                        alert("입력정보 오류. 다시 입력해주세요.");
+                        return false;
+                    }
+                }
+            </script>  
+    </head>
+    <body>
+        <div class="container">
+        <div class="search">
+        <h1>Search Work-Force</h1>
+        <form name="search_engine" method="post">
+            <ul>
+                <li>Force Name : </li>
+                <input class="forcename" type="text" name="forcename">
+                <li>Force ID : </li>
+                <input class="forceid" type="text" name="forceid">
+            </ul>
+                <input type="button" class="submit" value="Search" name="submit" onclick="search()">
+        </form>
+        </div>
+        </div>      
+    </body>
+</html>
